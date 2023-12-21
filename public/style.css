@@ -1,0 +1,177 @@
+:root {
+    --foreground-light: #FF7F11;
+    --foreground-dark: #FF1B1C;
+    --background-light: #FFFFFC;
+    --background-medium: #BEB7A4;
+    --background-dark: #000000;
+    --map-tiles-filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg) saturate(0.3) brightness(0.7);
+}
+
+body {
+    background: var(--background-dark);
+    height: 100%;
+    overflow-y: hidden;
+}
+
+#centre {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    white-space: nowrap;
+    overflow: hidden;
+
+    color: var(--foreground-light);
+}
+
+#StationNumber {
+    background: var(--background-dark);
+    color: var(--foreground-light);
+    border-radius: 8px;
+    border: 1px solid var(--foreground-light);
+    opacity: 60%;
+    transition: 0.2s;
+}
+
+#StationNumber:hover, #StationNumber:focus, #StationNumber:visited {
+    opacity: 100%;
+}
+
+
+#StationNumber::placeholder {
+    color: var(--foreground-light);
+}
+
+
+#Submit:hover {
+    opacity: 100%;
+}
+
+#Submit:active {
+    opacity: 100%;
+    border: 1px solid var(--background-light);
+}
+
+#Submit {
+    background: var(--background-dark);
+    color: var(--foreground-light);
+    border-radius: 8px;
+    border: 1px solid var(--foreground-light);
+    transition: 0.3s;
+    opacity: 60%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#StationTable {
+    color: inherit;
+    background: var(--background-dark);
+    border: inherit;
+    width: 85%;
+    overflow-y: scroll;
+    height: 75%;
+    display:block;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px 0px;
+    border: 1px solid var(--foreground-light);
+    border-radius: 3px;
+    animation: SpawnScale 1s ease-in;
+}
+#stop_name {
+    animation: SpawnFade 1s ease-in;
+}
+
+
+@keyframes SpawnFade {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+@keyframes SpawnScale {
+    0% {
+        opacity: 0;
+        transform: scaleY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleY(1);
+    }
+}
+
+#StationTable thead th {
+    background: var(--background-dark);
+    color: var(--foreground-light);
+    position: sticky;
+    top: 0;
+}
+
+.StationRow:hover {
+    opacity: 100%;
+}
+
+.StationRow:hover {
+    background: var(--foreground-light);
+    color: var(--background-light);
+}
+
+.StationRow:active {
+    color: var(--background-dark);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--background-dark);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    border-radius: 3px; 
+    background: var(--foreground-light);
+}
+
+#map {
+    height: 75%;
+    width: 80%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: SpawnScale 1s ease-in;
+}
+
+
+#app {
+    height: calc(100% - 60px);
+}
+
+footer {
+    position:absolute;
+    left:0;
+    bottom:10px;
+    right:0; 
+}
+
+.map-tiles {
+    filter:var(--map-tiles-filter, none);
+}
